@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo gpio mode 22 out
+sudo gpio write 22 1
