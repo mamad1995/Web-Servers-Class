@@ -47,6 +47,7 @@
 					echo `gpio mode 22 out`;
 					echo `gpio write 22 1`;
 					//echo `sh write_1`;
+					//echo `python LED_on`;
 					echo "The LED is ON!";
 				}
 			
@@ -54,6 +55,7 @@
 					echo `gpio mode 22 out`;
 					echo `gpio write 22 0`;
 					//echo `sh write_0`;
+					//echo `python LED_off`;
 					echo "The LED is OFF!"; 
 				}
 			}
