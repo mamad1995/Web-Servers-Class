@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+import os
+from guizero import *
+
+def measure_temp ():
+    temp = os.popen("sudo vcgencmd measure_temp").readline()
+    return (temp.replace("temp=",""))
+
+def update_temp ():
+    text.set(measure_temp())
+    text.after(1000, update_temp)
+
+if __name__ == '__main__':
+    app = App(title="'C",
+              height=60,
+              width=170,
+              layout='grid',
+              bg="black")
+
+    message = Text(app,
+                   'CPU Temperature:',
+                   size=15,
+                   grid=[0, 0],
+                   color="white")
+
+    text = Text(app,
+               "Wait...",
+               grid=[0, 1],
+               size=20,
+               color="yellow")
+
+    text.after(1000, update_temp)
+
+    app.display()
